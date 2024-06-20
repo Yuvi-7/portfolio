@@ -18,4 +18,4 @@ for (let i = 0; i < skills.length; i++) {
   skillList.innerHTML += `<li><img src="${skills[i].logo}" width=${skills[i].width} /><span class="tooltiptext">${skills[i].name}</span></li>`;
 }
 
-console.log("124234");
+

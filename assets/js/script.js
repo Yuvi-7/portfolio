@@ -111,7 +111,20 @@ const formInputs = document.querySelectorAll("[data-form-input]");
 const formBtn = document.querySelector("[data-form-btn]");
 
 document.addEventListener("DOMContentLoaded", function () {
-  emailjs.init('qz0QT2bu89a1nvbTR');
+  function showNotification() {
+    var notification = document.getElementById("notification");
+    notification.classList.remove("hide");
+    notification.classList.add("show");
+
+    // Keep the notification visible for 2 seconds before hiding it
+    setTimeout(function () {
+      notification.classList.remove("show");
+      notification.classList.add("hide");
+    }, 5000); // 2 seconds
+  }
+
+
+  emailjs.init("qz0QT2bu89a1nvbTR");
 
   // Your EmailJS-related code here
   // Add event listener for form submission
@@ -127,9 +140,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Send email using EmailJS
     emailjs
-      .sendForm('service_2rqll94', 'template_c5qnzds', form, 'qz0QT2bu89a1nvbTR')
+      .sendForm(
+        "service_2rqll94",
+        "template_c5qnzds",
+        form,
+        "qz0QT2bu89a1nvbTR"
+      )
       .then((response) => {
-        console.log("Email sent successfully:", response);
+        // console.log("Email sent successfully:", response);
+        showNotification();
         // Optionally, show a success message or redirect the user
       })
       .catch((error) => {

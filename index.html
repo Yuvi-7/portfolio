@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>vCard - Personal Portfolio</title>
+    <title>Personal Portfolio</title>
 
     <!--
     - favicon
@@ -30,7 +30,6 @@
       rel="stylesheet"
     />
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-
   </head>
 
   <body>
@@ -42,7 +41,7 @@
       <!--
       - #SIDEBAR
     -->
-
+     <div id="notification" class="notification">Email sent successfully!</div>
       <aside class="sidebar" data-sidebar>
         <div class="sidebar-info">
           <figure class="avatar-box">
@@ -54,7 +53,7 @@
           </figure>
 
           <div class="info-content">
-            <h1 class="name" title="Yuvraj">Yuvraj Gupta </h1>
+            <h1 class="name" title="Yuvraj">Yuvraj Gupta</h1>
 
             <p class="title">Frontend Developer</p>
           </div>
@@ -126,9 +125,12 @@
           <div class="separator"></div>
 
           <ul class="social-list">
-          
             <li class="social-item">
-              <a href="https://www.linkedin.com/in/yuvrajg/" class="social-link" target="_blank">
+              <a
+                href="https://www.linkedin.com/in/yuvrajg/"
+                class="social-link"
+                target="_blank"
+              >
                 <ion-icon name="logo-linkedin"></ion-icon>
               </a>
             </li>
@@ -155,20 +157,17 @@
               <button class="navbar-link" data-nav-link>Resume</button>
             </li>
 
-
-             <li class="navbar-item">
-              <button class="navbar-link" data-nav-link>Contact</button>
+            <li class="navbar-item">
+              <button class="navbar-link" data-nav-link>Portfolio</button>
             </li>
 
             <li class="navbar-item">
-              <button class="navbar-link" data-nav-link>Portfolio</button>
+              <button class="navbar-link" data-nav-link>Contact</button>
             </li>
 
             <!-- <li class="navbar-item">
               <button class="navbar-link" data-nav-link>Blog</button>
             </li> -->
-
-           
           </ul>
         </nav>
 
@@ -705,72 +704,7 @@
           </section>
         </article>
 
-
-
-
-      <!--
-        - #CONTACT
-      -->
-
-        <article class="contact" data-page="contact">
-          <header>
-            <h2 class="h2 article-title">Contact</h2>
-          </header>
-
-          <section class="mapbox" data-mapbox>
-            <figure>
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14023.043996360984!2d77.18302375!3d28.5168376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1717430576064!5m2!1sen!2sin"
-                width="400"
-                height="300"
-                loading="lazy"
-              ></iframe>
-            </figure>
-          </section>
-
-          <section class="contact-form">
-            <h3 class="h3 form-title">Contact Form</h3>
-
-            <form action="#" class="form" data-form>
-              <div class="input-wrapper">
-                <input
-                  type="text"
-                  name="fullname"
-                  class="form-input"
-                  placeholder="Full name"
-                  required
-                  data-form-input
-                />
-
-                <input
-                  type="email"
-                  name="email"
-                  class="form-input"
-                  placeholder="Email address"
-                  required
-                  data-form-input
-                />
-              </div>
-
-              <textarea
-                name="message"
-                class="form-input"
-                placeholder="Your Message"
-                required
-                data-form-input
-              ></textarea>
-
-              <button class="form-btn" type="submit" disabled data-form-btn>
-                <ion-icon name="paper-plane"></ion-icon>
-                <span>Send Message</span>
-              </button>
-            </form>
-          </section>
-        </article>
-
-
-
-        <!--
+          <!--
         - #PORTFOLIO
       -->
 
@@ -785,7 +719,7 @@
                 <button class="active" data-filter-btn>All</button>
               </li>
 
-              <li class="filter-item">
+              <!-- <li class="filter-item">
                 <button data-filter-btn>Web design</button>
               </li>
 
@@ -795,7 +729,7 @@
 
               <li class="filter-item">
                 <button data-filter-btn>Web development</button>
-              </li>
+              </li> -->
             </ul>
 
             <div class="filter-select-box">
@@ -813,7 +747,7 @@
                 <li class="select-item">
                   <button data-select-item>All</button>
                 </li>
-
+                <!-- 
                 <li class="select-item">
                   <button data-select-item>Web design</button>
                 </li>
@@ -824,7 +758,7 @@
 
                 <li class="select-item">
                   <button data-select-item>Web development</button>
-                </li>
+                </li> -->
               </ul>
             </div>
 
@@ -834,8 +768,10 @@
                 data-filter-item
                 data-category="web development"
               >
-                <a href="#">
+                  <div class="visit">
                   <figure class="project-img">
+                    <a href="http://coloni.onrender.com" target="_blank">
+                 
                     <div class="project-item-icon-box">
                       <ion-icon name="eye-outline"></ion-icon>
                     </div>
@@ -845,39 +781,69 @@
                       alt="socialk media"
                       loading="lazy"
                     />
+                    </a>
                   </figure>
+                  <div style="display: flex;align-items: center;justify-content: space-between;">
 
+                    <div>
+                    
                   <h3 class="project-title">Social Media</h3>
-
                   <p class="project-category">Web application</p>
+                      
+                </div>
+                <a href="https://github.com/Yuvi-7/coloni.git" target="_blank">
+                  <img class="white-logo" width="24" height="24" src="https://img.icons8.com/external-tal-revivo-light-tal-revivo/96/000000/external-github-community-for-software-building-and-testing-online-logo-light-tal-revivo.png" alt="external-github-community-for-software-building-and-testing-online-logo-light-tal-revivo"/>
                 </a>
+                
+
+                </div>
+
+
+              
               </li>
 
-              <li
+                <li
                 class="project-item active"
                 data-filter-item
                 data-category="web development"
               >
-                <a href="#">
+                  <div class="visit">
                   <figure class="project-img">
+                    <a href="https://map-direction-liard.vercel.app/" target="_blank">
+                 
                     <div class="project-item-icon-box">
                       <ion-icon name="eye-outline"></ion-icon>
                     </div>
 
                     <img
                       src="./assets/images/project-2.jpg"
-                      alt="Map Direction"
+                      alt="socialk media"
                       loading="lazy"
                     />
+                    </a>
                   </figure>
+                  <div style="display: flex;align-items: center;justify-content: space-between;">
 
+                    <div>
+                    
                   <h3 class="project-title">Map Direction</h3>
-
                   <p class="project-category">Web application</p>
+                      
+                </div>
+                <a href="https://github.com/Yuvi-7/mapDirection.git" target="_blank">
+                  <img class="white-logo" width="24" height="24" src="https://img.icons8.com/external-tal-revivo-light-tal-revivo/96/000000/external-github-community-for-software-building-and-testing-online-logo-light-tal-revivo.png" alt="external-github-community-for-software-building-and-testing-online-logo-light-tal-revivo"/>
                 </a>
+                
+
+                </div>
+
+
+              
               </li>
 
-              <li
+           
+
+              <!-- <li
                 class="project-item active"
                 data-filter-item
                 data-category="web design"
@@ -1043,10 +1009,72 @@
 
                   <p class="project-category">Web development</p>
                 </a>
-              </li>
+              </li> -->
             </ul>
           </section>
         </article>
+
+        <!--
+        - #CONTACT
+      -->
+
+        <article class="contact" data-page="contact">
+          <header>
+            <h2 class="h2 article-title">Contact</h2>
+          </header>
+
+          <section class="mapbox" data-mapbox>
+            <figure>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14023.043996360984!2d77.18302375!3d28.5168376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1717430576064!5m2!1sen!2sin"
+                width="400"
+                height="300"
+                loading="lazy"
+              ></iframe>
+            </figure>
+          </section>
+
+          <section class="contact-form">
+            <h3 class="h3 form-title">Contact Form</h3>
+
+            <form action="#" class="form" data-form>
+              <div class="input-wrapper">
+                <input
+                  type="text"
+                  name="fullname"
+                  class="form-input"
+                  placeholder="Full name"
+                  required
+                  data-form-input
+                />
+
+                <input
+                  type="email"
+                  name="email"
+                  class="form-input"
+                  placeholder="Email address"
+                  required
+                  data-form-input
+                />
+              </div>
+
+              <textarea
+                name="message"
+                class="form-input"
+                placeholder="Your Message"
+                required
+                data-form-input
+              ></textarea>
+
+              <button class="form-btn" type="submit" disabled data-form-btn>
+                <ion-icon name="paper-plane"></ion-icon>
+                <span>Send Message</span>
+              </button>
+            </form>
+          </section>
+        </article>
+
+      
 
         <!--
         - #BLOG
@@ -1243,8 +1271,6 @@
             </ul>
           </section>
         </article>
-
-        
       </div>
     </main>
 
