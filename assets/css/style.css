@@ -21,6 +21,16 @@
   --secondary-color: #ec4899;
   --accent-color: #06b6d4;
   
+  /* Dark Mode Colors */
+  --bg-dark: #1e1b4b;
+  --text-dark: #1e293b;
+  --smoky-black: #0f172a;
+  --white: #ffffff;
+  --white-2: #f8fafc;
+  --light-gray: #94a3b8;
+  --light-gray-70: rgba(148, 163, 184, 0.7);
+  --error-color: #ef4444;
+
   /* Gradients */
   --gradient-primary: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
   --gradient-dark: linear-gradient(135deg, #1e1b4b, #312e81);
@@ -41,11 +51,12 @@
     rgba(236, 72, 153, 0.1),
     rgba(99, 102, 241, 0.1)
   );
-  
-  /* Text Colors */
-  --text-white: #ffffff;
-  --text-light: #94a3b8;
-  --text-dark: #1e293b;
+
+  /* Light Mode Colors */
+  --bg-light: #ffffff;
+  --text-light-mode: #1e293b;
+  --border-light: rgba(0, 0, 0, 0.1);
+  --shadow-light: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 
   /**
    * typography
@@ -2534,14 +2545,15 @@ html {
 
 /* Light Mode Styles */
 body.light-mode {
-  background: #f8fafc;
+  background: var(--bg-light);
+  color: var(--text-light-mode);
 }
 
 body.light-mode .sidebar,
 body.light-mode article {
   background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-light);
 }
 
 body.light-mode .h2,
@@ -2553,7 +2565,7 @@ body.light-mode .h5 {
 
 body.light-mode .navbar {
   background: rgba(255, 255, 255, 0.9);
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1px solid var(--border-light);
 }
 
 body.light-mode .navbar-link {
@@ -2577,7 +2589,7 @@ body.light-mode .contact-title {
 
 body.light-mode .form-input {
   background: rgba(0, 0, 0, 0.03);
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border-light);
   color: var(--text-dark);
 }
 
@@ -2594,7 +2606,7 @@ body.light-mode .service-item,
 body.light-mode .project-item,
 body.light-mode .blog-post-item > a {
   background: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border-light);
 }
 
 body.light-mode .service-item::before,

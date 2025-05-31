@@ -244,15 +244,34 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// Add dark/light mode toggle (if needed)
-// const toggleTheme = () => {
-//   document.body.classList.toggle('light-mode');
-//   localStorage.setItem('theme', document.body.classList.contains('light-mode') ? 'light' : 'dark');
-// };
+// Theme functionality
+const initializeTheme = () => {
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+  document.body.classList.toggle('light-mode', savedTheme === 'light');
+  
+  // Update meta theme-color
+  const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+  if (metaThemeColor) {
+    metaThemeColor.content = savedTheme === 'light' ? '#ffffff' : '#1e1e1e';
+  }
+};
 
-// Initialize theme from localStorage
-// const savedTheme = localStorage.getItem('theme') || 'dark';
-// if (savedTheme === 'light') document.body.classList.add('light-mode');
+const toggleTheme = () => {
+  const currentTheme = document.body.classList.contains('light-mode') ? 'light' : 'dark';
+  const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+  
+  document.body.classList.toggle('light-mode');
+  localStorage.setItem('theme', newTheme);
+  
+  // Update meta theme-color
+  const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+  if (metaThemeColor) {
+    metaThemeColor.content = newTheme === 'light' ? '#ffffff' : '#1e1e1e';
+  }
+};
+
+// Initialize theme on page load
+document.addEventListener('DOMContentLoaded', initializeTheme);
 
 // Smooth reveal animation for sections
 const revealSection = (entries, observer) => {
