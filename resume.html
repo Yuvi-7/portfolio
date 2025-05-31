@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yuvraj Gupta - Frontend Developer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        body {
+            line-height: 1.6;
+            color: #333;
+            max-width: 850px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        .title {
+            font-size: 1.2em;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .contact {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 10px;
+        }
+        .section {
+            margin: 25px 0;
+        }
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+        .objective {
+            text-align: justify;
+            color: #555;
+        }
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .skill-item {
+            background: #f0f4f8;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 0.9em;
+        }
+        .experience-item {
+            margin-bottom: 20px;
+        }
+        .company {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .position {
+            color: #3498db;
+        }
+        .date {
+            float: right;
+            color: #7f8c8d;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+            position: relative;
+        }
+        li::before {
+            content: "•";
+            color: #3498db;
+            position: absolute;
+            left: -15px;
+        }
+        .education-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        @media print {
+            body {
+                margin: 0;
+                padding: 20px;
+                background: white;
+            }
+            .container {
+                box-shadow: none;
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Yuvraj Gupta</h1>
+            <div class="title">Frontend Developer</div>
+            <div class="contact">
+                New Delhi, IN | +91-9818522468 | yuvrajgupta722@gmail.com | <a href="https://linkedin.com/in/yuvrajg/">linkedin.com/in/yuvrajg/</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Professional Summary</h2>
+            <p class="objective">
+                Experienced Front-End Developer with over 3+ years of expertise in React, TypeScript, and modern web technologies. Proficient in building responsive user interfaces, creating reusable components, and optimizing application performance. Familiar with Node.js and committed to delivering high-quality software solutions.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Technical Skills</h2>
+            <div class="skills">
+                <span class="skill-item">HTML</span>
+                <span class="skill-item">CSS</span>
+                <span class="skill-item">JavaScript</span>
+                <span class="skill-item">React.JS</span>
+                <span class="skill-item">Next.JS</span>
+                <span class="skill-item">Redux Toolkit</span>
+                <span class="skill-item">Tailwind CSS</span>
+                <span class="skill-item">Bootstrap</span>
+                <span class="skill-item">Material UI</span>
+                <span class="skill-item">TypeScript</span>
+                <span class="skill-item">Electron JS</span>
+                <span class="skill-item">REST APIs</span>
+                <span class="skill-item">Git</span>
+                <span class="skill-item">JSON</span>
+                <span class="skill-item">Firebase</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Professional Experience</h2>
+            <div class="experience-item">
+                <div>
+                    <span class="company">Sveltetech Technologies Pvt. Ltd.</span> | 
+                    <span class="position">Frontend Developer</span>
+                    <span class="date">Jan 2022 – Present</span>
+                </div>
+                <ul>
+                    <li>Developed a high-performance SPA using React and code-splitting, reducing page load time by ~40%, improving average session duration by 25% (based on internal analytics).</li>
+                    <li>Integrated Redux Toolkit for modular and scalable state management, reducing maintenance overhead and improving bug resolution time by ~20% over two release cycles.</li>
+                    <li>Mentored 3 junior developers through code reviews, pair programming, and onboarding, resulting in 2x faster ramp-up time and improved code quality across the team.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Projects</h2>
+            <div class="experience-item">
+                <div>
+                    <span class="company">Home IVF</span> | 
+                    <span class="position">Online IVF Consultation System</span>
+                </div>
+                <ul>
+                    <li>Developed an online IVF consultation web app using Next.js and Tailwind CSS, implementing a seamless scheduling system.</li>
+                    <li>Utilized Firebase FCM for efficient notifications.</li>
+                    <li>Enhanced user interactions with a rule-based chatbot using Redux Toolkit.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div>
+                    <span class="company">Mailbox</span> | 
+                    <span class="position">Electronic Mail Service</span>
+                </div>
+                <ul>
+                    <li>Designed and developed an advanced electronic mail service with: In-mail chat + Highlights + Annotations + Customized folders.</li>
+                    <li>Optimized data retrieval efficiency with API caching using Redux.</li>
+                    <li>Improved UX and system performance by following best practices and staying updated with the latest advancements.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Education</h2>
+            <div class="education-item">
+                <div>
+                    <strong>Delhi University</strong>, B.COM (Hons.) - New Delhi, ND
+                </div>
+                <div>May, 2021</div>
+            </div>
+            <div class="education-item">
+                <div>
+                    <strong>Chandigarh University</strong>, MCA - Chandigarh, PB
+                </div>
+                <div>Pursuing (Online)</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

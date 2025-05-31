@@ -4,35 +4,229 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Personal Portfolio</title>
+    <meta name="description" content="Yuvraj Gupta - Frontend Developer Portfolio showcasing web development projects and skills" />
+    <meta name="keywords" content="frontend developer, web developer, React, Next.js, TypeScript, portfolio" />
+    <meta name="author" content="Yuvraj Gupta" />
+    <meta property="og:title" content="Yuvraj Gupta - Frontend Developer Portfolio" />
+    <meta property="og:description" content="Portfolio showcasing web development projects and skills" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="./assets/images/my-avatar.png" />
+    <title>Yuvraj Gupta - Frontend Developer Portfolio</title>
 
-    <!--
-    - favicon
-  -->
-    <link
-      rel="shortcut icon"
-      href="./assets/images/logo.ico"
-      type="image/x-icon"
-    />
-
-    <!--
-    - custom css link
-  -->
-    <link rel="stylesheet" href="./assets/css/style.css" />
-
-    <!--
-    - google font link
-  -->
+    <!-- Add after meta tags and before other scripts -->
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR-GA4-ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'YOUR-GA4-ID');
+    </script>
+    
+    <!-- Preload critical assets -->
+    <link rel="preload" href="./assets/css/style.css" as="style" />
+    <link rel="preload" href="./assets/images/my-avatar.png" as="image" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
-      rel="stylesheet"
-    />
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    
+    <!-- favicon -->
+    <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="./assets/images/logo.ico" />
+
+    <!-- custom css link -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+
+    <!-- google font link -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <!-- Theme Color for Mobile -->
+    <meta name="theme-color" content="#1e1e1e" />
+    
+    <!-- Loading animation -->
+    <style>
+      .loader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--smoky-black);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        transition: opacity 0.5s ease;
+      }
+      .loader.fade-out {
+        opacity: 0;
+      }
+      .loader-content {
+        width: 40px;
+        height: 40px;
+        border: 3px solid var(--jet);
+        border-top-color: var(--primary-color);
+        border-radius: 50%;
+        animation: spin 1s infinite linear;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Skill Tags Styling */
+      .skill-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 10px;
+      }
+      
+      .skill-tag {
+        background: var(--primary-color);
+        color: var(--white);
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 0.9em;
+        transition: all 0.3s ease;
+      }
+      
+      .skill-tag:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .skills-item {
+        margin-bottom: 25px;
+      }
+
+      .skills-item .title-wrapper {
+        margin-bottom: 10px;
+      }
+
+      .skills-item .h5 {
+        color: var(--primary-color);
+        font-size: 1.1em;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+    </style>
+
+    <!-- Particle.js for background effect -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
+    <!-- Add before the closing head tag -->
+    <style>
+      #particles-js {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        pointer-events: none;
+      }
+
+      main {
+        position: relative;
+        z-index: 1;
+      }
+
+      .glow-effect {
+        position: relative;
+      }
+
+      .glow-effect::before {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        background: linear-gradient(45deg, var(--primary-color), var(--primary-color-dark));
+        border-radius: 22px;
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .glow-effect:hover::before {
+        opacity: 0.5;
+        animation: glowPulse 1.5s infinite;
+      }
+
+      @keyframes glowPulse {
+        0% { opacity: 0.5; }
+        50% { opacity: 0.3; }
+        100% { opacity: 0.5; }
+      }
+
+      .avatar-box {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .avatar-box::after {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(
+          45deg,
+          transparent,
+          rgba(255, 255, 255, 0.1),
+          transparent
+        );
+        transform: rotate(45deg);
+        animation: shimmer 3s infinite;
+      }
+
+      @keyframes shimmer {
+        0% { transform: translateX(-100%) rotate(45deg); }
+        100% { transform: translateX(100%) rotate(45deg); }
+      }
+
+      .skill-item img {
+        transition: transform 0.3s ease;
+      }
+
+      .skill-item:hover img {
+        transform: scale(1.2) rotate(5deg);
+      }
+
+      .timeline-item {
+        transition: none !important;
+        transform: none !important;
+        box-shadow: none !important;
+      }
+
+      .timeline-item:hover {
+        transform: none !important;
+        box-shadow: none !important;
+      }
+    </style>
+
+    <!-- Twitter Card meta tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Yuvraj Gupta - Frontend Developer Portfolio" />
+    <meta name="twitter:description" content="Portfolio showcasing web development projects and skills" />
+    <meta name="twitter:image" content="./assets/images/my-avatar.png" />
   </head>
 
   <body>
+    <!-- Add this right after body tag -->
+    <div id="particles-js"></div>
+
+    <!-- Loading animation -->
+    <div class="loader">
+      <div class="loader-content"></div>
+    </div>
+
     <!--
     - #MAIN
   -->
@@ -54,13 +248,11 @@
 
           <div class="info-content">
             <h1 class="name" title="Yuvraj">Yuvraj Gupta</h1>
-
             <p class="title">Frontend Developer</p>
           </div>
 
           <button class="info_more-btn" data-sidebar-btn>
             <span>Show Contacts</span>
-
             <ion-icon name="chevron-down"></ion-icon>
           </button>
         </div>
@@ -164,10 +356,6 @@
             <li class="navbar-item">
               <button class="navbar-link" data-nav-link>Contact</button>
             </li>
-
-            <!-- <li class="navbar-item">
-              <button class="navbar-link" data-nav-link>Blog</button>
-            </li> -->
           </ul>
         </nav>
 
@@ -181,35 +369,14 @@
           </header>
 
           <section class="about-text">
-            <!-- <p>
-            I'm Creative Director and UI/UX Designer from Sydney, Australia, working in web development and print media.
-            I enjoy
-            turning complex problems into simple, beautiful and intuitive designs.
-          </p>
-
-          <p>
-            My job is to build your website so that it is functional and user-friendly but at the same time attractive.
-            Moreover, I
-            add personal touch to your product and make sure that is eye-catching and easy to use. My aim is to bring
-            across your
-            message and identity in the most creative way. I created web design for many famous brand companies.
-          </p> -->
-
             <p>
-              Hi, I'm Yuvraj – a friendly coder who loves building cool stuff
-              for the web. I use tools like React JS, Next JS, TypeScript, and
-              others to create websites that work smoothly and look great.
+              Experienced Front-End Developer with over 3+ years of expertise in React, TypeScript, and modern web technologies. Proficient in building responsive user interfaces, creating reusable components, and optimizing application performance.
             </p>
             <p>
-              I'm into making things not just for the web but also for your
-              computer, using Electron JS. When it comes to styling, I play
-              around with HTML, Tailwind CSS, and Bootstrap to make everything
-              look awesome.
+              I specialize in developing high-performance SPAs using React and implementing efficient state management solutions with Redux Toolkit. My focus is on delivering scalable and maintainable code while ensuring optimal user experience.
             </p>
             <p>
-              Behind the scenes, I use Firebase to make sure everything runs
-              smoothly. Let's chat about your ideas and make something awesome
-              together.
+              Familiar with Node.js and committed to delivering high-quality software solutions. I have a proven track record of mentoring junior developers and improving team productivity through code reviews and best practices.
             </p>
           </section>
 
@@ -224,19 +391,17 @@
               <li class="service-item">
                 <div class="service-icon-box">
                   <img
-                    src="./assets/images/icon-design.svg
-                "
+                    src="./assets/images/icon-design.svg"
                     alt="design icon"
                     width="40"
                   />
                 </div>
 
                 <div class="service-content-box">
-                  <h4 class="h4 service-item-title">Web design</h4>
+                  <h4 class="h4 service-item-title">Frontend Development</h4>
 
                   <p class="service-item-text">
-                    The most modern and high-quality design made at a
-                    professional level.
+                    Building high-performance web applications with React, Next.js, and modern frontend technologies.
                   </p>
                 </div>
               </li>
@@ -251,10 +416,10 @@
                 </div>
 
                 <div class="service-content-box">
-                  <h4 class="h4 service-item-title">Web development</h4>
+                  <h4 class="h4 service-item-title">Full Stack Development</h4>
 
                   <p class="service-item-text">
-                    High-quality development of sites at the professional level.
+                    Creating end-to-end solutions with React, Node.js, and Firebase integration.
                   </p>
                 </div>
               </li>
@@ -269,11 +434,10 @@
                 </div>
 
                 <div class="service-content-box">
-                  <h4 class="h4 service-item-title">Software Development</h4>
+                  <h4 class="h4 service-item-title">Desktop Applications</h4>
 
                   <p class="service-item-text">
-                    Crafting top-notch software solutions with a professional
-                    touch.
+                    Developing cross-platform desktop applications using Electron.js and modern web technologies.
                   </p>
                 </div>
               </li>
@@ -288,16 +452,65 @@
                 </div>
 
                 <div class="service-content-box">
-                  <h4 class="h4 service-item-title">Desktop Development</h4>
+                  <h4 class="h4 service-item-title">UI/UX Development</h4>
 
                   <p class="service-item-text">
-                    Desktop applications with Electron for a seamless user
-                    experience.
+                    Creating responsive and intuitive user interfaces using Tailwind CSS, Bootstrap, and Material UI.
                   </p>
                 </div>
               </li>
             </ul>
           </section>
+
+          <style>
+            .service-item {
+              position: relative;
+              background: var(--border-gradient-onyx);
+              padding: 20px;
+              border-radius: 14px;
+              box-shadow: var(--shadow-2);
+              z-index: 1;
+              transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+
+            .service-item::before {
+              content: '';
+              position: absolute;
+              inset: 1px;
+              background: var(--bg-gradient-jet);
+              border-radius: inherit;
+              z-index: -1;
+            }
+
+            .service-item:hover {
+              transform: translateY(-5px);
+              box-shadow: var(--shadow-3);
+            }
+
+            .service-item .service-icon-box {
+              transition: transform 0.3s ease;
+            }
+
+            .service-item:hover .service-icon-box {
+              transform: scale(1.1);
+            }
+
+            .service-item .service-content-box {
+              transition: transform 0.3s ease;
+            }
+
+            .service-item:hover .service-content-box {
+              transform: translateY(-3px);
+            }
+
+            .service-item-text {
+              transition: opacity 0.3s ease;
+            }
+
+            .service-item:hover .service-item-text {
+              opacity: 0.9;
+            }
+          </style>
 
           <!--
           - testimonials
@@ -551,20 +764,288 @@
             <h2 class="h2 article-title">Resume</h2>
           </header>
 
+          <!-- Skills section at top -->
+          <section class="skill">
+            <h3 class="h3 skills-title">My Expertise</h3>
+            <div class="skills-wrapper">
+              <div class="skills-container">
+                <div class="skill-icons">
+                  <!-- Core Modern Stack -->
+                  <div class="skill-item">
+                    <img src="./assets/logo/react.png" alt="React" class="skill-icon" />
+                    <span class="skill-tooltip">React</span>
+                  </div>
+                  <div class="skill-item">
+                    <img src="./assets/logo/next.png" alt="Next.js" class="skill-icon" />
+                    <span class="skill-tooltip">Next.js</span>
+                  </div>
+                  <div class="skill-item">
+                    <img src="./assets/logo/ts.png" alt="TypeScript" class="skill-icon" />
+                    <span class="skill-tooltip">TypeScript</span>
+                  </div>
+                  <div class="skill-item">
+                    <img src="./assets/logo/redux.png" alt="Redux Toolkit" class="skill-icon" />
+                    <span class="skill-tooltip">Redux Toolkit</span>
+                  </div>
+
+                  <!-- Backend & Database -->
+                  <div class="skill-item">
+                    <img src="https://nodejs.org/static/images/logo.svg" alt="Node.js" class="skill-icon" />
+                    <span class="skill-tooltip">Node.js</span>
+                  </div>
+                  <div class="skill-item">
+                    <img src="https://www.mongodb.com/assets/images/global/leaf.png" alt="MongoDB" class="skill-icon" />
+                    <span class="skill-tooltip">MongoDB</span>
+                  </div>
+                  <div class="skill-item">
+                    <img src="https://raw.githubusercontent.com/TanStack/query/main/media/emblem-light.svg" alt="TanStack Query" class="skill-icon" />
+                    <span class="skill-tooltip">TanStack Query</span>
+                  </div>
+
+                  <!-- Styling Technologies -->
+                  <div class="skill-item">
+                    <img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" alt="Tailwind CSS" class="skill-icon" />
+                    <span class="skill-tooltip">Tailwind CSS</span>
+                  </div>
+                  <div class="skill-item">
+                    <img src="./assets/logo/mui.png" alt="Material UI" class="skill-icon" />
+                    <span class="skill-tooltip">Material UI</span>
+                  </div>
+                  <div class="skill-item">
+                    <img src="./assets/logo/bootstrap.png" alt="Bootstrap" class="skill-icon" />
+                    <span class="skill-tooltip">Bootstrap</span>
+                  </div>
+
+                  <!-- Core Web Technologies -->
+                  <div class="skill-item">
+                    <img src="./assets/logo/js.png" alt="JavaScript" class="skill-icon" />
+                    <span class="skill-tooltip">JavaScript</span>
+                  </div>
+                  <div class="skill-item">
+                    <img src="./assets/logo/html.png" alt="HTML" class="skill-icon" />
+                    <span class="skill-tooltip">HTML</span>
+                  </div>
+                  <div class="skill-item">
+                    <img src="./assets/logo/css.png" alt="CSS" class="skill-icon" />
+                    <span class="skill-tooltip">CSS</span>
+                  </div>
+
+                  <!-- Development Tools & Platforms -->
+                  <div class="skill-item">
+                    <img src="./assets/logo/github.png" alt="Git" class="skill-icon" />
+                    <span class="skill-tooltip">Git</span>
+                  </div>
+                  <div class="skill-item">
+                    <img src="./assets/logo/firebase.png" alt="Firebase" class="skill-icon" />
+                    <span class="skill-tooltip">Firebase</span>
+                  </div>
+                  <div class="skill-item">
+                    <img src="./assets/logo/electron.png" alt="Electron" class="skill-icon" />
+                    <span class="skill-tooltip">Electron</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <style>
+            .skills-wrapper {
+              padding: 20px;
+              max-width: 100%;
+            }
+
+            .skills-container {
+              background: var(--border-gradient-onyx);
+              border-radius: 20px;
+              padding: 30px;
+            }
+
+            .skill-icons {
+              display: flex;
+              flex-wrap: wrap;
+              gap: 30px;
+              align-items: center;
+              justify-content: center;
+            }
+
+            .skill-item {
+              position: relative;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+
+            .skill-icon {
+              width: 45px;
+              height: 45px;
+              object-fit: contain;
+              transition: transform 0.3s ease;
+              filter: brightness(0.9);
+            }
+
+            /* Specific styling for certain logos */
+            .skill-item img[alt="Node.js"] {
+              filter: brightness(0.9) hue-rotate(180deg);
+            }
+
+            .skill-item img[alt="MongoDB"] {
+              filter: brightness(0.9) hue-rotate(90deg);
+            }
+
+            .skill-item img[alt="TanStack Query"] {
+              filter: invert(1) brightness(0.9);
+              width: 35px; /* Slightly smaller to match other icons */
+            }
+
+            body.dark-theme .skill-item img[alt="TanStack Query"] {
+              filter: brightness(0.9);
+            }
+
+            .skill-tooltip {
+              position: absolute;
+              bottom: -30px;
+              left: 50%;
+              transform: translateX(-50%) translateY(10px);
+              background: var(--primary-color);
+              color: #ffffff;
+              padding: 4px 8px;
+              border-radius: 4px;
+              font-size: 12px;
+              opacity: 0;
+              visibility: hidden;
+              transition: all 0.3s ease;
+              white-space: nowrap;
+              z-index: 100;
+              text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            }
+
+            .skill-item:hover .skill-icon {
+              transform: translateY(-5px);
+              filter: brightness(1) !important;
+            }
+
+            .skill-item:hover .skill-tooltip {
+              opacity: 1;
+              visibility: visible;
+              transform: translateX(-50%) translateY(0);
+            }
+
+            @media (max-width: 580px) {
+              .skills-wrapper {
+                padding: 10px;
+              }
+
+              .skills-container {
+                padding: 20px;
+              }
+
+              .skill-icons {
+                gap: 20px;
+              }
+
+              .skill-icon {
+                width: 35px;
+                height: 35px;
+              }
+
+              .skill-tooltip {
+                font-size: 10px;
+                padding: 3px 6px;
+                bottom: -25px;
+              }
+            }
+          </style>
+
           <section class="timeline">
             <div class="title-wrapper">
               <div class="icon-box">
                 <ion-icon name="book-outline"></ion-icon>
               </div>
 
-              <h3 class="h3">Education</h3>
+              <h3 class="h3" style="color: var(--vegas-gold);">Experience</h3>
+            </div>
+
+            <ol class="timeline-list">
+              <li class="timeline-item">
+                <h4 class="h4 timeline-item-title">Frontend Developer</h4>
+
+                <span style="color: #8892b0;">Sveltetech Technologies Pvt. Ltd. | Jan 2022 - Present</span>
+
+                <p class="timeline-text">
+                  Developed a high-performance SPA using React and code-splitting, reducing page load time by ~40%, improving average session duration by 25% (based on internal analytics).
+                </p>
+                <br />
+
+                <p class="timeline-text">
+                  Integrated Redux Toolkit for modular and scalable state management, reducing maintenance overhead and improving bug resolution time by ~20% over two release cycles.
+                </p>
+                <br />
+
+                <p class="timeline-text">
+                  Mentored 3 junior developers through code reviews, pair programming, and onboarding, resulting in 2x faster ramp-up time and improved code quality across the team.
+                </p>
+              </li>
+
+              <li class="timeline-item">
+                <h4 class="h4 timeline-item-title">Official Projects</h4>
+
+                <span style="color: #8892b0;">Home IVF - Online IVF Consultation System</span>
+
+                <p class="timeline-text">
+                  Developed an online IVF consultation web app using Next.js and Tailwind CSS, implementing a seamless scheduling system.
+                </p>
+                <br />
+
+                <p class="timeline-text">
+                  Utilized Firebase FCM for efficient notifications and enhanced user interactions with a rule-based chatbot using Redux Toolkit.
+                </p>
+                <br />
+
+                <span style="color: #8892b0;">Mailbox - Electronic Mail Service</span>
+
+                <p class="timeline-text">
+                  Designed and developed an advanced electronic mail service with: In-mail chat + Highlights + Annotations + Customized folders.
+                </p>
+                <br />
+
+                <p class="timeline-text">
+                  Optimized data retrieval efficiency with API caching using Redux and improved UX and system performance by following best practices.
+                </p>
+              </li>
+
+              <li class="timeline-item">
+                <h4 class="h4 timeline-item-title">Personal Projects</h4>
+
+                <span style="color: #8892b0;">Social Media Platform</span>
+
+                <p class="timeline-text">
+                  Built a full-stack social media platform using React, Node.js, and MongoDB, featuring real-time chat, post sharing, and user interactions.
+                </p>
+                <br />
+
+                <span style="color: #8892b0;">Map Direction Application</span>
+
+                <p class="timeline-text">
+                  Developed an interactive map application using Google Maps API and React, implementing features like route optimization and location sharing.
+                </p>
+              </li>
+            </ol>
+          </section>
+
+          <section class="timeline">
+            <div class="title-wrapper">
+              <div class="icon-box">
+                <ion-icon name="book-outline"></ion-icon>
+              </div>
+
+              <h3 class="h3" style="color: var(--vegas-gold);">Education</h3>
             </div>
 
             <ol class="timeline-list">
               <li class="timeline-item">
                 <h4 class="h4 timeline-item-title">Chandigarh University</h4>
 
-                <span>2024 — Present</span>
+                <span style="color: #8892b0;">2024 — Present</span>
 
                 <p class="timeline-text">
                   I am presently enrolled in the Master of Computer Applications
@@ -575,7 +1056,7 @@
               <li class="timeline-item">
                 <h4 class="h4 timeline-item-title">Delhi University</h4>
 
-                <span>2019 — 2021</span>
+                <span style="color: #8892b0;">2019 — 2021</span>
 
                 <p class="timeline-text">
                   I hold a Bachelor of Commerce (Honors) degree from Delhi
@@ -583,124 +1064,7 @@
                   at Sri Guru Gobind Singh College of Commerce.
                 </p>
               </li>
-
-              <li class="timeline-item">
-                <h4 class="h4 timeline-item-title">High School</h4>
-
-                <span>2017 — 2018</span>
-
-                <p class="timeline-text">
-                  Higher Secondary (12th Grade) from N. P. Co-Ed. Model Sr. Sec.
-                  School, where I successfully completed my secondary education.
-                </p>
-              </li>
             </ol>
-          </section>
-
-          <section class="timeline">
-            <div class="title-wrapper">
-              <div class="icon-box">
-                <ion-icon name="book-outline"></ion-icon>
-              </div>
-
-              <h3 class="h3">Experience</h3>
-            </div>
-
-            <ol class="timeline-list">
-              <li class="timeline-item">
-                <h4 class="h4 timeline-item-title">React Developer</h4>
-
-                <span
-                  >Sveltetech Technology Pvt. Ltd. | Jan 2022 - Present</span
-                >
-
-                <p class="timeline-text">
-                  As a React Developer, I optimized web app performance by 20%,
-                  collaborated on government tower analysis software, addressing
-                  criminal aspects.
-                </p>
-                <br />
-
-                <p class="timeline-text">
-                  Alongside optimizing server-side rendering, I mentored junior
-                  developers, fostering a collaborative team environment.
-                </p>
-              </li>
-
-              <li class="timeline-item">
-                <h4 class="h4 timeline-item-title">React Developer</h4>
-
-                <span
-                  >Vega6 Webware Technologies Pvt. Ltd. | Jun 2021 - Dec
-                  2021</span
-                >
-
-                <p class="timeline-text">
-                  I also developed a cutting-edge video editor with integrated
-                  Facebook and YouTube sharing, enabling users to enhance and
-                  share their content effortlessly.
-                </p>
-                <br />
-
-                <p class="timeline-text">
-                  Built an innovative video editor with integrated Facebook and
-                  YouTube sharing, simplifying content enhancement and
-                  distribution.
-                </p>
-              </li>
-            </ol>
-          </section>
-
-          <section class="skill">
-            <h3 class="h3 skills-title">My skills</h3>
-
-            <ul class="skills-list content-card"></ul>
-
-            <!-- <ul class="skills-list content-card">
-              <li class="skills-item">
-                <div class="title-wrapper">
-                  <h5 class="h5">Web design</h5>
-                  <data value="80">80%</data>
-                </div>
-
-                <div class="skill-progress-bg">
-                  <div class="skill-progress-fill" style="width: 80%"></div>
-                </div>
-              </li>
-
-              <li class="skills-item">
-                <div class="title-wrapper">
-                  <h5 class="h5">Graphic design</h5>
-                  <data value="70">70%</data>
-                </div>
-
-                <div class="skill-progress-bg">
-                  <div class="skill-progress-fill" style="width: 70%"></div>
-                </div>
-              </li>
-
-              <li class="skills-item">
-                <div class="title-wrapper">
-                  <h5 class="h5">Branding</h5>
-                  <data value="90">90%</data>
-                </div>
-
-                <div class="skill-progress-bg">
-                  <div class="skill-progress-fill" style="width: 90%"></div>
-                </div>
-              </li>
-
-              <li class="skills-item">
-                <div class="title-wrapper">
-                  <h5 class="h5">WordPress</h5>
-                  <data value="50">50%</data>
-                </div>
-
-                <div class="skill-progress-bg">
-                  <div class="skill-progress-fill" style="width: 50%"></div>
-                </div>
-              </li>
-            </ul> -->
           </section>
         </article>
 
@@ -792,7 +1156,7 @@
                       
                 </div>
                 <a href="https://github.com/Yuvi-7/coloni.git" target="_blank">
-                  <img class="white-logo" width="24" height="24" src="https://img.icons8.com/external-tal-revivo-light-tal-revivo/96/000000/external-github-community-for-software-building-and-testing-online-logo-light-tal-revivo.png" alt="external-github-community-for-software-building-and-testing-online-logo-light-tal-revivo"/>
+                  <img class="white-logo" width="24" height="24" src="https://img.icons8.com/external-tal-revivo-light-tal-revivo/96/000000/external-github-community-for-software-building-and-testing-online-logo-light-tal-revivo"/>
                 </a>
                 
 
@@ -831,7 +1195,7 @@
                       
                 </div>
                 <a href="https://github.com/Yuvi-7/mapDirection.git" target="_blank">
-                  <img class="white-logo" width="24" height="24" src="https://img.icons8.com/external-tal-revivo-light-tal-revivo/96/000000/external-github-community-for-software-building-and-testing-online-logo-light-tal-revivo.png" alt="external-github-community-for-software-building-and-testing-online-logo-light-tal-revivo"/>
+                  <img class="white-logo" width="24" height="24" src="https://img.icons8.com/external-tal-revivo-light-tal-revivo/96/000000/external-github-community-for-software-building-and-testing-online-logo-light-tal-revivo"/>
                 </a>
                 
 
@@ -1073,204 +1437,6 @@
             </form>
           </section>
         </article>
-
-      
-
-        <!--
-        - #BLOG
-      -->
-
-        <article class="blog" data-page="blog">
-          <header>
-            <h2 class="h2 article-title">Blog</h2>
-          </header>
-
-          <section class="blog-posts">
-            <ul class="blog-posts-list">
-              <li class="blog-post-item">
-                <a href="#">
-                  <figure class="blog-banner-box">
-                    <img
-                      src="./assets/images/blog-1.jpg"
-                      alt="Design conferences in 2022"
-                      loading="lazy"
-                    />
-                  </figure>
-
-                  <div class="blog-content">
-                    <div class="blog-meta">
-                      <p class="blog-category">Design</p>
-
-                      <span class="dot"></span>
-
-                      <time datetime="2022-02-23">Fab 23, 2022</time>
-                    </div>
-
-                    <h3 class="h3 blog-item-title">
-                      Design conferences in 2022
-                    </h3>
-
-                    <p class="blog-text">
-                      Veritatis et quasi architecto beatae vitae dicta sunt,
-                      explicabo.
-                    </p>
-                  </div>
-                </a>
-              </li>
-
-              <li class="blog-post-item">
-                <a href="#">
-                  <figure class="blog-banner-box">
-                    <img
-                      src="./assets/images/blog-2.jpg"
-                      alt="Best fonts every designer"
-                      loading="lazy"
-                    />
-                  </figure>
-
-                  <div class="blog-content">
-                    <div class="blog-meta">
-                      <p class="blog-category">Design</p>
-
-                      <span class="dot"></span>
-
-                      <time datetime="2022-02-23">Fab 23, 2022</time>
-                    </div>
-
-                    <h3 class="h3 blog-item-title">
-                      Best fonts every designer
-                    </h3>
-
-                    <p class="blog-text">
-                      Sed ut perspiciatis, nam libero tempore, cum soluta nobis
-                      est eligendi.
-                    </p>
-                  </div>
-                </a>
-              </li>
-
-              <li class="blog-post-item">
-                <a href="#">
-                  <figure class="blog-banner-box">
-                    <img
-                      src="./assets/images/blog-3.jpg"
-                      alt="Design digest #80"
-                      loading="lazy"
-                    />
-                  </figure>
-
-                  <div class="blog-content">
-                    <div class="blog-meta">
-                      <p class="blog-category">Design</p>
-
-                      <span class="dot"></span>
-
-                      <time datetime="2022-02-23">Fab 23, 2022</time>
-                    </div>
-
-                    <h3 class="h3 blog-item-title">Design digest #80</h3>
-
-                    <p class="blog-text">
-                      Excepteur sint occaecat cupidatat no proident, quis
-                      nostrum exercitationem ullam corporis suscipit.
-                    </p>
-                  </div>
-                </a>
-              </li>
-
-              <li class="blog-post-item">
-                <a href="#">
-                  <figure class="blog-banner-box">
-                    <img
-                      src="./assets/images/blog-4.jpg"
-                      alt="UI interactions of the week"
-                      loading="lazy"
-                    />
-                  </figure>
-
-                  <div class="blog-content">
-                    <div class="blog-meta">
-                      <p class="blog-category">Design</p>
-
-                      <span class="dot"></span>
-
-                      <time datetime="2022-02-23">Fab 23, 2022</time>
-                    </div>
-
-                    <h3 class="h3 blog-item-title">
-                      UI interactions of the week
-                    </h3>
-
-                    <p class="blog-text">
-                      Enim ad minim veniam, consectetur adipiscing elit, quis
-                      nostrud exercitation ullamco laboris nisi.
-                    </p>
-                  </div>
-                </a>
-              </li>
-
-              <li class="blog-post-item">
-                <a href="#">
-                  <figure class="blog-banner-box">
-                    <img
-                      src="./assets/images/blog-5.jpg"
-                      alt="The forgotten art of spacing"
-                      loading="lazy"
-                    />
-                  </figure>
-
-                  <div class="blog-content">
-                    <div class="blog-meta">
-                      <p class="blog-category">Design</p>
-
-                      <span class="dot"></span>
-
-                      <time datetime="2022-02-23">Fab 23, 2022</time>
-                    </div>
-
-                    <h3 class="h3 blog-item-title">
-                      The forgotten art of spacing
-                    </h3>
-
-                    <p class="blog-text">
-                      Maxime placeat, sed do eiusmod tempor incididunt ut labore
-                      et dolore magna aliqua.
-                    </p>
-                  </div>
-                </a>
-              </li>
-
-              <li class="blog-post-item">
-                <a href="#">
-                  <figure class="blog-banner-box">
-                    <img
-                      src="./assets/images/blog-6.jpg"
-                      alt="Design digest #79"
-                      loading="lazy"
-                    />
-                  </figure>
-
-                  <div class="blog-content">
-                    <div class="blog-meta">
-                      <p class="blog-category">Design</p>
-
-                      <span class="dot"></span>
-
-                      <time datetime="2022-02-23">Fab 23, 2022</time>
-                    </div>
-
-                    <h3 class="h3 blog-item-title">Design digest #79</h3>
-
-                    <p class="blog-text">
-                      Optio cumque nihil impedit uo minus quod maxime placeat,
-                      velit esse cillum.
-                    </p>
-                  </div>
-                </a>
-              </li>
-            </ul>
-          </section>
-        </article>
       </div>
     </main>
 
@@ -1294,5 +1460,194 @@
     <script src="https://cdn.jsdelivr.net/npm/dotenv@10.0.0/dist/dotenv.min.js"></script>
 
     <script src="./index.js"></script>
+
+    <!-- Custom JS -->
+    <script>
+      // Remove loader when page is loaded
+      window.addEventListener('load', () => {
+        const loader = document.querySelector('.loader');
+        loader.classList.add('fade-out');
+        setTimeout(() => {
+          loader.style.display = 'none';
+        }, 500);
+      });
+    </script>
+
+    <script>
+      particlesJS('particles-js', {
+        particles: {
+          number: {
+            value: 50,
+            density: { enable: true, value_area: 800 }
+          },
+          color: { value: '#00C896' },
+          shape: {
+            type: "circle",
+            stroke: { width: 0, color: "#000000" },
+          },
+          opacity: {
+            value: 0.3,
+            random: true,
+            animation: { enable: true, speed: 1, opacity_min: 0.1, sync: false }
+          },
+          size: {
+            value: 3,
+            random: true,
+            animation: { enable: true, speed: 2, size_min: 0.1, sync: false }
+          },
+          line_linked: {
+            enable: true,
+            distance: 150,
+            color: "#00C896",
+            opacity: 0.2,
+            width: 1
+          },
+          move: {
+            enable: true,
+            speed: 1,
+            direction: "none",
+            random: false,
+            straight: false,
+            out_mode: "out",
+            bounce: false,
+            attract: { enable: true, rotateX: 600, rotateY: 1200 }
+          }
+        },
+        interactivity: {
+          detect_on: "canvas",
+          events: {
+            onhover: { enable: true, mode: "repulse" },
+            onclick: { enable: true, mode: "push" },
+            resize: true
+          },
+          modes: {
+            repulse: { distance: 100, duration: 0.4 },
+            push: { particles_nb: 4 }
+          }
+        },
+        retina_detect: true
+      });
+
+      // Add glow effect to cards with improved animation - excluding timeline items
+      document.querySelectorAll('.service-item, .project-item').forEach(item => {
+        item.classList.add('glow-effect');
+        
+        // Add hover animation
+        item.addEventListener('mouseenter', () => {
+          item.style.transform = 'translateY(-5px)';
+        });
+        
+        item.addEventListener('mouseleave', () => {
+          item.style.transform = 'translateY(0)';
+        });
+      });
+
+      // Smooth reveal animation for sections
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('section').forEach(section => {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(20px)';
+        section.style.transition = 'all 0.5s ease';
+        observer.observe(section);
+      });
+    </script>
+
+    <style>
+      .project-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 10px;
+      }
+
+      .project-links {
+        display: flex;
+        gap: 10px;
+      }
+
+      .project-link {
+        color: var(--primary-color);
+        font-size: 1.2em;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+      }
+
+      .project-link:hover {
+        color: var(--white);
+        transform: translateY(-2px);
+      }
+
+      .timeline-item span {
+        color: var(--primary-color);
+        font-weight: 500;
+      }
+
+      .timeline .title-wrapper .icon-box {
+        color: var(--vegas-gold);
+      }
+    </style>
+
+    <!-- Add before closing body tag -->
+    <button id="scroll-to-top" class="scroll-to-top" aria-label="Scroll to top">
+      <ion-icon name="arrow-up-outline"></ion-icon>
+    </button>
+
+    <style>
+      .scroll-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: var(--primary-color);
+        color: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: none;
+        cursor: pointer;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        transition: all 0.3s ease;
+      }
+
+      .scroll-to-top:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .scroll-to-top.visible {
+        display: flex;
+      }
+    </style>
+
+    <script>
+      // Scroll to top functionality
+      const scrollToTopButton = document.getElementById('scroll-to-top');
+      
+      window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+          scrollToTopButton.classList.add('visible');
+        } else {
+          scrollToTopButton.classList.remove('visible');
+        }
+      });
+      
+      scrollToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    </script>
   </body>
 </html>
