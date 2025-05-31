@@ -2532,3 +2532,86 @@ html {
   color: var(--light-gray);
 }
 
+/* Light Mode Styles */
+body.light-mode {
+  background: #f8fafc;
+}
+
+body.light-mode .sidebar,
+body.light-mode article {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+body.light-mode .h2,
+body.light-mode .h3,
+body.light-mode .h4,
+body.light-mode .h5 {
+  color: var(--text-dark);
+}
+
+body.light-mode .navbar {
+  background: rgba(255, 255, 255, 0.9);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .navbar-link {
+  color: var(--text-dark);
+}
+
+body.light-mode .navbar-link:hover,
+body.light-mode .navbar-link:focus {
+  color: var(--primary-color);
+}
+
+body.light-mode .about-text,
+body.light-mode .timeline-text,
+body.light-mode .blog-text {
+  color: var(--text-dark);
+}
+
+body.light-mode .contact-title {
+  color: var(--text-dark);
+}
+
+body.light-mode .form-input {
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: var(--text-dark);
+}
+
+body.light-mode .form-input::placeholder {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+body.light-mode .form-input:focus {
+  border-color: var(--primary-color);
+  background: rgba(0, 0, 0, 0.02);
+}
+
+body.light-mode .service-item,
+body.light-mode .project-item,
+body.light-mode .blog-post-item > a {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .service-item::before,
+body.light-mode .project-item::before,
+body.light-mode .blog-post-item > a::before {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+body.light-mode .timeline-item {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+body.light-mode .mapbox {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .mapbox iframe {
+  filter: none;
+}
+
