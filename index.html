@@ -360,13 +360,6 @@
             <li class="navbar-item">
               <button class="navbar-link" data-nav-link>Contact</button>
             </li>
-
-            <li class="navbar-item">
-              <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
-                <ion-icon name="moon-outline" class="moon-icon"></ion-icon>
-                <ion-icon name="sunny-outline" class="sun-icon"></ion-icon>
-              </button>
-            </li>
           </ul>
         </nav>
 
@@ -1660,40 +1653,5 @@
         });
       });
     </script>
-
-    <style>
-      .theme-toggle {
-        background: none;
-        border: none;
-        padding: 8px;
-        cursor: pointer;
-        color: var(--light-gray);
-        font-size: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: color 0.3s ease;
-      }
-
-      .theme-toggle:hover {
-        color: var(--primary-color);
-      }
-
-      .theme-toggle .moon-icon {
-        display: none;
-      }
-
-      .theme-toggle .sun-icon {
-        display: block;
-      }
-
-      body.light-mode .theme-toggle .moon-icon {
-        display: block;
-      }
-
-      body.light-mode .theme-toggle .sun-icon {
-        display: none;
-      }
-    </style>
   </body>
 </html>

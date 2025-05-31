@@ -246,11 +246,11 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Theme functionality
 const initializeTheme = () => {
-  // Always set to dark theme
+  // Always use dark theme
   document.body.classList.remove('light-mode');
   localStorage.setItem('theme', 'dark');
   
-  // Update meta theme-color
+  // Set dark theme color for mobile browsers
   const metaThemeColor = document.querySelector('meta[name="theme-color"]');
   if (metaThemeColor) {
     metaThemeColor.content = '#1e1e1e';

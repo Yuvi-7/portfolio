@@ -52,12 +52,6 @@
     rgba(99, 102, 241, 0.1)
   );
 
-  /* Light Mode Colors */
-  --bg-light: #ffffff;
-  --text-light-mode: #1e293b;
-  --border-light: rgba(0, 0, 0, 0.1);
-  --shadow-light: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-
   /**
    * typography
    */
@@ -2494,59 +2488,6 @@ html {
   transform: translateY(-20px);
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-5px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.spin {
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* Form button loading state */
-.form-btn:disabled {
-  cursor: not-allowed;
-  opacity: 0.7;
-}
-
-.form-btn ion-icon.spin {
-  animation: spin 1s linear infinite;
-}
-
-/* Form input focus states */
-.form-input:focus:not(.error) {
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 2px rgba(0, 200, 150, 0.1);
-}
-
-.form-input::placeholder {
-  color: var(--light-gray-70);
-  transition: color 0.3s ease;
-}
-
-.form-input:focus::placeholder {
-  color: var(--light-gray);
-}
-
-/* Remove Light Mode Styles since we only want dark mode */
-/* body.light-mode styles removed */
-
-/* Keep existing animations and other styles */
 @keyframes fadeIn {
   from {
     opacity: 0;
